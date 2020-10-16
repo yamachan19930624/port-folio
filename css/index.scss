@@ -1,0 +1,307 @@
+////基本設定//////////////////
+$text-base-color: #333;
+$font-family-base: Verdana, Geneva, Tahoma, sans-serif;
+$line-height-base: 1.5;
+$back-ground-color: #d2f3d6;
+
+$width-base: 980px;
+$max-width:100%;
+
+/////////////////////////れすぽんしぶ//////////////////
+$breakpoints: (
+  
+   'sm': 'screen and (max-width: 767px)', //767px以下（スマホ）用の表示
+   'md': 'screen and (min-width: 768px)' //768px以上（タブレット・PC）用の表示
+  ) !default;
+  
+  //メディアクエリ用のmixinを定義。デフォ値はmd
+  @mixin mq($breakpoint: md) {
+  //map-get(マップ型変数, キー)で値を取得
+    @media #{map-get($breakpoints, $breakpoint)} {
+      //この中をカスタムできる
+      @content;
+    }
+  }
+ /////////////////////////////////////////////////////////////// 
+  
+ 
+  
+
+
+body{
+  color: $text-base-color;
+  font-family: $font-family-base;
+  line-height: $line-height-base;
+  
+  @include mq(sm) {
+     
+    width:767px;
+    
+   }
+  
+}
+
+img{
+  width: 100%;
+  height: auto;
+}
+
+.image-iikanji-bgimage {
+  width: 100%;
+  height: 600px;
+  background-position: center;
+  background-image: url(../images/tanabata-header.png);
+  
+  background-repeat: no-repeat;
+}
+
+video{
+  width: 100%;
+  height: auto;
+}
+  
+ 
+
+a{
+  text-decoration: none;
+  color: $text-base-color;
+
+  &:hover {
+    opacity: 0.6;
+    cursor: pointer;
+  }
+  }
+
+  
+
+  .container{
+    width: $width-base;
+    max-width: $max-width;
+    margin: 0 auto;
+
+    @include mq(sm) {
+      width: 767px;
+      max-width: 100%;
+      margin: 0 auto;
+     }
+    
+
+   
+  }
+
+  .clear::after{
+    content: "";
+    display: block;
+    clear: both;
+  }
+
+
+
+
+
+  //////header///////
+
+  header{
+    padding: 20px 0;
+    background-color:$back-ground-color;
+    @include mq(sm) {
+     
+      padding: 30px 0 15px;
+    }
+  }
+
+  .header_left{
+    float: left;
+    text-align: center;  
+    @include mq(sm) {
+     float: none;
+     margin-left: auto;
+     margin-bottom: 20px;
+    }
+  }
+
+  .header_title{
+    font-weight: bold;
+    font-size: 24px;
+    @include mq(sm) {
+      font-size: 30px;
+     }
+    
+  }
+  
+  .header_right{
+    float: right;
+    @include mq(sm) {
+      float: none;
+      margin-left: 90px;
+      font-size: 18px;
+     }
+
+   ul{
+     li{
+       float: left;
+       margin-left: 50px; 
+       &:hover{
+        opacity: 0.6;
+        cursor: pointer;
+      }   
+        a{
+          font-weight: 600px;
+          font-size: 16px;
+          line-height: 36px;
+
+          
+        }
+     }
+   }
+  }
+
+  
+
+/////////////////////////////section////////////////////
+
+.section{
+  padding: 60px;
+}
+
+.section_title{
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.design_title{
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.design_text{
+  margin-bottom: 20px;
+}
+
+///////////////top////////////////////////////////
+.top{
+
+}
+.stitch {
+  color: #fcff55;
+  padding: 20px;
+  font-size: 22px;
+  
+  border: 2px dashed #F7F9CC;
+  border-radius: 10px;
+  
+  position: absolute;/*絶対配置*/
+  right: 45%;
+  top: 200px;
+  width: 40%;
+  height: 250px;
+
+  @include mq(sm) {
+    border: none;
+    font-size: 15px;
+   }
+}
+
+.gazou{
+  position: relative;/*相対配置*/
+}
+
+
+
+////////////////////////second//////////////////////////
+
+.second{
+  background-color:$back-ground-color;
+}
+.second_left{
+  float: left;
+  width: 48%;
+}
+
+.second_right{
+  float: right;
+  width: 48%;
+}
+
+
+
+////////////////////////design//////////////////
+.design{
+  background-color:$back-ground-color;
+}
+
+.design_wrapper{
+  display: flex;
+  justify-content: space-between;
+}
+
+.design_item{
+  width: 48%;
+}
+
+//////////////////////rails///////////////@at-root
+
+.rails_wrapper{
+  display: flex;
+  justify-content: space-between;
+}
+
+.rails_item{
+  width: 48%;
+}
+
+////////////////////contact//////////////
+
+.contact{
+  background-color:$back-ground-color;
+}
+
+.contact_message{
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+input[type="email"]{
+  width: 600px;
+  border: 4px solid #edf3d2;
+  font-size: 16px;
+  margin: auto;
+  display: block;
+  padding: 10px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.btn{
+  padding: 20px 50px;
+  display: inline-block;
+  background-color: #fcff55;
+  font-weight: bold;
+  border-radius: 4px;
+
+  &:hover{
+    opacity: 0.6;
+    cursor: pointer;
+  }
+}
+
+.btn_register{
+  background-color: #fcff55;
+  display: block;
+  margin: auto;
+  
+}
+////////////////footer////////////////@at-root
+
+footer{
+  background-color: #fcff55;
+  padding: 20px 0;
+  p{
+    text-align: center;
+    font-size: 16px;
+  
+  }
+}
